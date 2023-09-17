@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pace Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header class="mainHeader">
+            MY PACE
+    </header>
+<div class="time">
+    <span style="font-size: 20px;">Calculate Time</span>
+    <br>
+    <div class="distancia" style="margin-top: 20px">
+    <label>Distance (KM)</label>
+    <br>
+    <input id=distance type="number" min="0.1" placeholder="KM" >
+    <br>
+    </div>
+    <label>Pace (min/km)</label>
+    <br>
+        <input type="number" id="paceMin" min="0" max="59" placeholder="Min" >
+        <input type="number" id="paceSec" min="0" max="59" placeholder="Sec" >
+    <br>
+    <button class='calculate' onclick="calculate()">Calculate</button>
+    <br>
+    <label></label>
+    <span id="result"></span>
+    <br>
+    <span id="dfinal"></span>
+    <br>
+    <span id="pfinal"></span>
+</div>
+
+<div>      
+    <script>
+        function calculate() {
+            var distance = parseInt(document.getElementById("distance").value);
+            var paceMin = parseInt(document.getElementById("paceMin").value);
+            var paceSec = parseInt(document.getElementById("paceSec").value);
+            var totalSec = (paceMin * 60) + paceSec;
+            var resulte = totalSec * distance;
+            document.getElementById("dfinal").innerHTML = "Distance: " + distance + "KM"
+            document.getElementById("pfinal").innerHTML = "Pace: " + paceMin + ":" + paceSec
+
+
+        // Result converted to time
+
+        var hours = Math.floor(resultado / 3600);
+        var minRemaining = Math.floor ((resulte % 3600) / 60);
+        var secRemaining = resulte % 60;
+        var timeConverted = hour.toString().padStart(2, '0') + ':' + 
+                             minRemaining.toString().padStart(2, '0') + ':'+
+                             secRemaining.toString().padStart(2, '0');
+        document.getElementById("resulte").innerHTML = "Tempo Total: " + timeConverted;
+
+        //Pace convertido
+        
+        var minPaceRest = Math.floor ((totalSec % 3600) / 60);
+        var secPaceRest = totalSec % 60;
+        var paceformat =     minPaceRest.toString().padStart(2, '0') + ':'+
+                             secPaceRest.toString().padStart(2, '0');
+        document.getElementById("pfinal").innerHTML = "Pace: " + paceformat;
+        }
+    
+    </script>
+</div>
+<div class="plans5">
+    <div class="description">
+    <p>Plan for Beginners 5km</p>
+    </div> 
+        <div class="download">
+            <a href="images/Plan5km.pdf" download class="bplan5">Download PDF</a>
+            <iframe class="plan5" src="images/Plan5km.pdf" width="10%" height="200px"></iframe>
+    </div>
+        </div>
+</div>
+<div class="plans10">
+    <div class="description10">
+    <p>Plan for Beginners 10km</p>
+    </div> 
+        <div class="download10">
+            <a href="images/Plan10km.pdf" download class="bplan10">Download PDF</a>
+            <iframe class="plan10" src="images/Plan10km.pdf" width="10%" height="200px"></iframe>
+    </div>
+        </div>
+</div>
+</body>
+</html>
