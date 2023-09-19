@@ -14,7 +14,7 @@
 <div class="time">
     <span style="font-size: 20px;">Calculate Time</span>
     <br>
-    <div class="distancia" style="margin-top: 20px">
+    <div class="distance" style="margin-top: 20px">
     <label>Distance (KM)</label>
     <br>
     <input id=distance type="number" min="0.1" placeholder="KM" >
@@ -42,20 +42,20 @@
             var paceMin = parseInt(document.getElementById("paceMin").value);
             var paceSec = parseInt(document.getElementById("paceSec").value);
             var totalSec = (paceMin * 60) + paceSec;
-            var resulte = totalSec * distance;
+            var result = totalSec * distance;
             document.getElementById("dfinal").innerHTML = "Distance: " + distance + "KM"
             document.getElementById("pfinal").innerHTML = "Pace: " + paceMin + ":" + paceSec
 
 
         // Result converted to time
 
-        var hours = Math.floor(resultado / 3600);
-        var minRemaining = Math.floor ((resulte % 3600) / 60);
-        var secRemaining = resulte % 60;
-        var timeConverted = hour.toString().padStart(2, '0') + ':' + 
+        var hours = Math.floor(result / 3600);
+        var minRemaining = Math.floor ((result % 3600) / 60);
+        var secRemaining = result % 60;
+        var timeConverted = hours.toString().padStart(2, '0') + ':' + 
                              minRemaining.toString().padStart(2, '0') + ':'+
                              secRemaining.toString().padStart(2, '0');
-        document.getElementById("resulte").innerHTML = "Tempo Total: " + timeConverted;
+        document.getElementById("result").innerHTML = "Total Time: " + timeConverted;
 
         //Pace convertido
         
